@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="DateTimeCalculator.cs" />
     <Compile Include="DateTimePeriodo.cs" />
+    <Compile Include="PeriodCalculator.cs" />
     <Compile Include="Periodo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
