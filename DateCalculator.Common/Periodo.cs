@@ -186,7 +186,7 @@ namespace DateCalculator.Common
                 this.Days = 0;
 
                 this.AddMonthPeriod();
-
+                
             }
             else if (((this.Months == 3) || (this.Months == 5) || (this.Months == 8) || (this.Months == 10)) && (this.Days > 29))
             {
