@@ -45,141 +45,219 @@ namespace DateCalculator.Common
             this.Years = 0;
         }
 
-        public void AddSeconds(int seconds)
+        public void AddSecondsDate(int seconds)
         {
             this.Seconds += seconds;
 
             if (this.Seconds > 59)
             {
                 this.Seconds = this.Seconds % 60;
-                this.AddMinutes(this.Seconds / 60);
+                this.AddMinutesDate(this.Seconds / 60);
             }
         }
 
-        public void AddMinutes(int minutes)
+        public void AddMinutesDate(int minutes)
         {
             this.Minutes += minutes;
 
             if (this.Minutes > 59)
             {
                 this.Minutes = this.Minutes % 60;
-                this.AddHours(this.Minutes / 60);
+                this.AddHoursDate(this.Minutes / 60);
             }
         }
 
-        public void AddHours(int hours)
+        public void AddHoursDate(int hours)
         {
             this.Hours += hours;
 
             if (this.Hours > 59)
             {
                 this.Hours = this.Hours % 60;
-                this.AddDays(this.Hours / 60);
+                this.AddDaysDate(this.Hours / 60);
             }
         }
 
-        public void AddDays (int days)
+        public void AddDaysDate(int days)
         {
-            for (int i = days; i>0; i--)
+            for (int i = 1; i <= days; i++)
             {
-                this.AddDay();
+                this.AddDayDate();
             }
         }
 
-        public void AddMonths (int months)
+        public void AddMonthsDate(int months)
         {
-            for(int i = months; i>0; i--)
+            for (int i = months; i > 0; i--)
             {
-                this.AddMonth();
+                this.AddMonthDate();
             }
         }
 
-        public void AddYears (int years)
+        public void AddYearsDate(int years)
         {
             this.Years += years;
         }
-   
-        public void AddDay()
+
+        public void AddDayDate()
         {
             this.Days += 1;
 
-            if (((this.Months == 1) || (this.Months == 3) || (this.Months == 5) || (this.Months == 7) || (this.Months == 8) || (this.Months == 10) || (this.Months == 12)) && (this.Days > 31)) 
+            if (((this.Months == 1) || (this.Months == 3) || (this.Months == 5) || (this.Months == 7) || (this.Months == 8) || (this.Months == 10) || (this.Months == 12)) && (this.Days > 31))
             {
                 this.Days = 1;
 
-                this.AddMonth();
+                this.AddMonthDate();
 
-            } else if (((this.Months == 0) || (this.Months == 4) || (this.Months == 6) || (this.Months == 9) || (this.Months == 11)) && (this.Days > 30))
+            }
+            else if (((this.Months == 0) || (this.Months == 4) || (this.Months == 6) || (this.Months == 9) || (this.Months == 11)) && (this.Days > 30))
             {
                 this.Days = 1;
 
-                this.AddMonth();
+                this.AddMonthDate();
 
-            } else if ((this.Months == 2) && ((this.Years % 4) == 0) && (this.Days > 29))
+            }
+            else if ((this.Months == 2) && ((this.Years % 4) == 0) && (this.Days > 29))
             {
                 this.Days = 1;
 
-                this.AddMonth();
+                this.AddMonthDate();
 
-            } else if ((this.Months == 2) && ((this.Years % 4) != 0) && (this.Days > 28))
+            }
+            else if ((this.Months == 2) && ((this.Years % 4) != 0) && (this.Days > 28))
             {
                 this.Days = 1;
 
-                this.AddMonth();
+                this.AddMonthDate();
             }
         }
 
-        public void AddMonth()
+        public void AddMonthDate()
         {
             this.Months += 1;
 
-            if (this.Months > 11)
+            if (this.Months > 12)
             {
                 this.Months = 1;
-                this.AddYear();
+                this.AddYearDate();
             }
         }
 
-        public void AddYear()
+        public void AddYearDate()
         {
             this.Years += 1;
         }
 
-        public void RemoveYear()
+        public void RemoveYearDate()
         {
             this.Years -= 1;
         }
 
-        public void RemoveYears(int years)
+        public void RemoveYearsDate(int years)
         {
             this.Years -= years;
         }
 
-        public void RemoveMonth()
+        public void RemoveMonthDate()
         {
             this.Months -= 1;
             if (this.Months == 0)
             {
-                this.RemoveYear();
+                this.RemoveYearDate();
                 this.Months = 12;
             }
         }
 
-        public void RemoveMonths(int months)
+        public int RemoveMonthDateWithAnswer()
         {
-            for (int i = months; i > 0; i--)
+            if (this.Months == 1)
             {
-                this.RemoveMonth();
+                this.Months = 12;
+                this.RemoveYearDate();
+                return 31;
+            }
+            else if (this.Months == 2)
+            {
+                this.Months = 1;
+                return 31;
+            }
+            else if (this.Months == 3)
+            {
+                if (this.Years % 4 == 0)
+                {
+                    this.Months = 2;
+                    return 29;
+                }
+                else
+                {
+                    this.Months = 2;
+                    return 28;
+                }
+            }
+            else if (this.Months == 4)
+            {
+                this.Months = 3;
+                return 31;
+            }
+            else if (this.Months == 5)
+            {
+                this.Months = 4;
+                return 30;
+            }
+            else if (this.Months == 6)
+            {
+                this.Months = 5;
+                return 31;
+            }
+            else if (this.Months == 7)
+            {
+                this.Months = 6;
+                return 30;
+            }
+            else if (this.Months == 8)
+            {
+                this.Months = 7;
+                return 31;
+            }
+            else if (this.Months == 9)
+            {
+                this.Months = 8;
+                return 31;
+            }
+            else if (this.Months == 10)
+            {
+                this.Months = 9;
+                return 30;
+            }
+            else if (this.Months == 11)
+            {
+                this.Months = 10;
+                return 31;
+            }
+            else if (this.Months == 12)
+            {
+                this.Months = 11;
+                return 30;
+            }
+
+            return 0;
+        }
+
+        public void RemoveMonthsDate(int months)
+        {
+            for (int i = 1; i<=months; i++)
+            {
+                this.RemoveMonthDate();
             }
         }
 
-        public void RemoveDay()
+        public void RemoveDayDate()
         {
             this.Days -= 1;
 
             if ((this.Days == 0) && (this.Months != 0))
             {
-                this.RemoveMonth();
+                this.RemoveMonthDate();
 
                 if ((this.Months == 1) || (this.Months == 3) || (this.Months == 5) || (this.Months == 7) || (this.Months == 8) || (this.Months == 10) || (this.Months == 12))
                 {
@@ -200,6 +278,90 @@ namespace DateCalculator.Common
                 {
                     this.Days = 28;
 
+                }
+            }
+        }
+
+        public void AddDaysPeriod(int days)
+        {
+            for (int i = 0; i <= days; i++)
+            {
+                this.AddDayPeriod();
+            }
+        }
+
+        public void AddMonthsPeriod(int months)
+        {
+            for (int i = 1; i <= months; i++)
+            {
+                this.AddMonthDate();
+            }
+        }
+
+        public void AddYearsPeriod(int years)
+        {
+            this.Years += years;
+        }
+
+        public void AddDayPeriod()
+        {
+            this.Days += 1;
+
+            if (((this.Months == 0) || (this.Months == 2) || (this.Months == 4) || (this.Months == 6) || (this.Months == 7) || (this.Months == 9) || (this.Months == 11)) && (this.Days > 30))
+            {
+                this.Days = 0;
+
+                this.AddMonthPeriod();
+
+            }
+            else if (((this.Months == 3) || (this.Months == 5) || (this.Months == 8) || (this.Months == 10)) && (this.Days > 29))
+            {
+                this.Days = 0;
+
+                this.AddMonthPeriod();
+
+            }
+            else if ((this.Months == 1) && ((this.Years % 4) == 0) && (this.Days > 28))
+            {
+                this.Days = 0;
+
+                this.AddMonthPeriod();
+
+            }
+            else if ((this.Months == 1) && ((this.Years % 4) != 0) && (this.Days > 27))
+            {
+                this.Days = 0;
+
+                this.AddMonthPeriod();
+            }
+        }
+
+        public void AddMonthPeriod()
+        {
+            this.Months += 1;
+
+            if (this.Months > 11)
+            {
+                this.Months = 0;
+                this.AddYearPeriod();
+            }
+        }
+
+        public void AddYearPeriod()
+        {
+            this.Years += 1;
+        }
+
+        public void AddGenericDays(int days)
+        {
+            for (int i = 1; i <= days; i++)
+            {
+                this.Days += 1;
+
+                if (this.Days >= 30)
+                {
+                    this.Days = 0;
+                    this.AddMonthDate();
                 }
             }
         }

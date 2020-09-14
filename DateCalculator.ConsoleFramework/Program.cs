@@ -26,8 +26,8 @@ namespace DateCalculator.ConsoleFramework
             DateTime inicio5 = new DateTime(2018, 04, 03, 0, 0, 0);
             DateTime fin5 = new DateTime(2018, 09, 26, 0, 0, 0);
 
-            DateTime inicioF = new DateTime(2001, 02, 04, 0, 0, 0);
-            DateTime finF = new DateTime(2001, 02, 04, 0, 0, 0);
+            DateTime inicioF = new DateTime(2010, 5, 1, 0, 0, 0);
+            DateTime finF = new DateTime(2018, 4, 2, 0, 0, 0);
 
             Periodo resultado1 = PeriodCalculator.CalcularPeriodo(inicio1, fin1);
             Periodo resultado2 = PeriodCalculator.CalcularPeriodo(inicio2, fin2);
@@ -36,11 +36,11 @@ namespace DateCalculator.ConsoleFramework
             Periodo resultado5 = PeriodCalculator.CalcularPeriodo(inicio5, fin5);
             Periodo resultadoF = PeriodCalculator.CalcularPeriodo(inicioF, finF);
 
-            resultado1.AddDay();
-            resultado2.AddDay();
-            resultado3.AddDay();
-            resultado4.AddDay();
-            resultadoF.AddDay();
+            //resultado1.AddDayDate();
+            //resultado2.AddDayDate();
+            //resultado3.AddDayDate();
+            //resultado4.AddDayDate();
+            //resultadoF.AddDayDate();
 
             //long inicioEnSegundos1 = DateTimeCalculator.ToSeconds(inicio1);
             //long finEnSegundos1 = DateTimeCalculator.ToSeconds(fin1);
@@ -94,12 +94,49 @@ namespace DateCalculator.ConsoleFramework
             Console.WriteLine("-----------------------------------------------------------------");
             //Console.WriteLine("{0} {1} {2}", inicioEnSegundosF, finEnSegundosF, finEnSegundosF - inicioEnSegundosF);
             //Console.WriteLine("{0} {1} {2}", inicioEnSegundos2, finEnSegundos2, finEnSegundos2 - inicioEnSegundos2);
-            Console.WriteLine("-----------------------------------------------------------------");
+            //Console.WriteLine("-----------------------------------------------------------------");
             //long a = 0;
             //long b = 4;
             //Console.WriteLine("{0} - {1}", a / b, a % b);
 
+            //TimeSpan date1 = (fin1 - inicio1);
+            //TimeSpan date2 = (fin2 - inicio2);
+            //TimeSpan date3 = (fin3 - inicio3);
+            //TimeSpan date4 = (fin4 - inicio4);
 
+            //TimeSpan undia = new System.TimeSpan(1, 0, 0, 0);
+            //date1 += undia;
+            //date1 += undia;
+            //date2 += undia;
+            //date3 += undia;
+            //date4 += undia;
+
+            //Periodo puaj1 = new Periodo();
+            //Periodo puaj2 = new Periodo();
+            //Periodo puaj3 = new Periodo();
+            //Periodo puaj4 = new Periodo();
+
+            //puaj1.AddGenericDays(date1.Days);
+            //puaj2.AddGenericDays(date2.Days);
+            //puaj3.AddGenericDays(date3.Days);
+            //puaj4.AddGenericDays(date4.Days);
+
+            //puaj1.AddDaysPeriod(date1.Days);
+            //puaj2.AddDaysPeriod(date2.Days);
+            //puaj3.AddDaysPeriod(date3.Days);
+            //puaj4.AddDaysPeriod(date4.Days);
+
+
+            //Console.WriteLine($"fin - inicio = {date1.Days}");
+            //Console.WriteLine($"fin - inicio = {date2.Days}");
+            //Console.WriteLine($"fin - inicio = {date3.Days}");
+            //Console.WriteLine($"fin - inicio = {date4.Days}");
+            Console.WriteLine("-----------------------------------------------------------------");
+            //Console.WriteLine("DESDE {0} HASTA {1} = {2}-{3}-{4} {5}:{6}:{7}", inicio1, fin1, puaj1.Years, puaj1.Months, puaj1.Days, puaj1.Hours, puaj1.Minutes, puaj1.Seconds);
+            //Console.WriteLine("DESDE {0} HASTA {1} = {2}-{3}-{4} {5}:{6}:{7}", inicio2, fin2, puaj2.Years, puaj2.Months, puaj2.Days, puaj2.Hours, puaj2.Minutes, puaj2.Seconds);
+            //Console.WriteLine("DESDE {0} HASTA {1} = {2}-{3}-{4} {5}:{6}:{7}", inicio3, fin3, puaj3.Years, puaj3.Months, puaj3.Days, puaj3.Hours, puaj3.Minutes, puaj3.Seconds);
+            //Console.WriteLine("DESDE {0} HASTA {1} = {2}-{3}-{4} {5}:{6}:{7}", inicio4, fin4, puaj4.Years, puaj4.Months, puaj4.Days, puaj4.Hours, puaj4.Minutes, puaj4.Seconds);
+            Console.WriteLine("-----------------------------------------------------------------");
             Console.ReadLine();
 
 
