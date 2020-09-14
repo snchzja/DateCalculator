@@ -95,9 +95,6 @@ namespace DateCalculator.ConsoleFramework
             //Console.WriteLine("{0} {1} {2}", inicioEnSegundosF, finEnSegundosF, finEnSegundosF - inicioEnSegundosF);
             //Console.WriteLine("{0} {1} {2}", inicioEnSegundos2, finEnSegundos2, finEnSegundos2 - inicioEnSegundos2);
             //Console.WriteLine("-----------------------------------------------------------------");
-            //long a = 0;
-            //long b = 4;
-            //Console.WriteLine("{0} - {1}", a / b, a % b);
 
             //TimeSpan date1 = (fin1 - inicio1);
             //TimeSpan date2 = (fin2 - inicio2);
