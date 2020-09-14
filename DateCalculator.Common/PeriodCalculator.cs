@@ -44,7 +44,7 @@ namespace DateCalculator.Common
 
             } else if ((fin.Year > inicio.Year) || (fin.Month > inicio.Month))
             {
-                int dias = result.RemoveMonthDateWithAnswer();
+                int dias = result.RemoveMonthPeriodWithAnswer();
                 result.AddDaysPeriodWithExtraDay((fin.Day + (dias) - inicio.Day));
             }
             else

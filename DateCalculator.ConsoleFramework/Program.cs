@@ -26,8 +26,8 @@ namespace DateCalculator.ConsoleFramework
             DateTime inicio5 = new DateTime(2018, 04, 03, 0, 0, 0);
             DateTime fin5 = new DateTime(2018, 09, 26, 0, 0, 0);
 
-            DateTime inicioF = new DateTime(1998, 08, 04, 0, 0, 0);
-            DateTime finF = new DateTime(2020, 01, 01, 0, 0, 0);
+            DateTime inicioF = new DateTime(2000, 05, 05, 0, 0, 0);
+            DateTime finF = new DateTime(2001, 05, 01, 0, 0, 0);
 
             Periodo resultado1 = PeriodCalculator.CalcularPeriodo(inicio1, fin1);
             Periodo resultado2 = PeriodCalculator.CalcularPeriodo(inicio2, fin2);
@@ -51,6 +51,8 @@ namespace DateCalculator.ConsoleFramework
             Console.WriteLine("-----------------------------------------------------------------");
             Console.WriteLine("DESDE {0} HASTA {1} = {2}-{3}-{4} {5}:{6}:{7}", inicioF, finF, resultadoF.Years, resultadoF.Months, resultadoF.Days, resultadoF.Hours, resultadoF.Minutes, resultadoF.Seconds);
             Console.WriteLine("-----------------------------------------------------------------");
+            totalPeriodo = PeriodCalculator.SumarPeriodos(totalPeriodo, resultadoF);
+            Console.WriteLine("Total General = {0}-{1}-{2} {3}:{4}:{5}", totalPeriodo.Years, totalPeriodo.Months, totalPeriodo.Days, totalPeriodo.Hours, totalPeriodo.Minutes, totalPeriodo.Seconds);
 
 
             //resultado1.AddDayDate();

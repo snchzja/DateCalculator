@@ -163,12 +163,13 @@ namespace DateCalculator.Common
                 this.AddDayPeriod();
             }
         }
-
+        //TODO que es esto??
         public void AddMonthsPeriod(int months)
         {
             for (int i = 1; i <= months; i++)
             {
-                this.AddMonthDate();
+                //this.AddMonthDate();
+                this.AddMonthPeriod();
             }
         }
 
@@ -329,6 +330,81 @@ namespace DateCalculator.Common
             else if (this.Months == 12)
             {
                 this.Months = 11;
+                return 30;
+            }
+
+            return 0;
+        }
+
+        public int RemoveMonthPeriodWithAnswer()
+        {
+            if (this.Months == 0)
+            {
+                this.Months = 11;
+                this.RemoveYearDate();
+                return 31;
+            }
+            else if (this.Months == 1)
+            {
+                this.Months = 0;
+                return 31;
+            }
+            else if (this.Months == 2)
+            {
+                if (this.Years % 4 == 0)
+                {
+                    this.Months = 1;
+                    return 29;
+                }
+                else
+                {
+                    this.Months = 1;
+                    return 28;
+                }
+            }
+            else if (this.Months == 3)
+            {
+                this.Months = 2;
+                return 31;
+            }
+            else if (this.Months == 4)
+            {
+                this.Months = 3;
+                return 30;
+            }
+            else if (this.Months == 5)
+            {
+                this.Months = 4;
+                return 31;
+            }
+            else if (this.Months == 6)
+            {
+                this.Months = 5;
+                return 30;
+            }
+            else if (this.Months == 7)
+            {
+                this.Months = 6;
+                return 31;
+            }
+            else if (this.Months == 8)
+            {
+                this.Months = 7;
+                return 31;
+            }
+            else if (this.Months == 9)
+            {
+                this.Months = 8;
+                return 30;
+            }
+            else if (this.Months == 10)
+            {
+                this.Months = 9;
+                return 31;
+            }
+            else if (this.Months == 11)
+            {
+                this.Months = 10;
                 return 30;
             }
 
