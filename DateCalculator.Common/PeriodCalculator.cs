@@ -40,17 +40,28 @@ namespace DateCalculator.Common
 
             if (fin.Day >= inicio.Day)
             {
-                result.AddDaysPeriod((fin.Day - inicio.Day));
+                result.AddDaysPeriodWithExtraDay((fin.Day - inicio.Day));
 
             } else if ((fin.Year > inicio.Year) || (fin.Month > inicio.Month))
             {
                 int dias = result.RemoveMonthDateWithAnswer();
-                result.AddDaysPeriod((fin.Day + (dias) - inicio.Day));
+                result.AddDaysPeriodWithExtraDay((fin.Day + (dias) - inicio.Day));
             }
             else
             {
                 return new Periodo();
             }
+
+            return result;
+        }
+
+        public static Periodo SumarPeriodos(Periodo sumando1, Periodo sumando2)
+        {
+            Periodo result = new Periodo();
+
+            result.AddDaysPeriodNoExtraDay(sumando1.Days + sumando2.Days);
+            result.AddMonthsPeriod(sumando1.Months + sumando2.Months);
+            result.AddYearsPeriod(sumando1.Years + sumando2.Years);
 
             return result;
         }

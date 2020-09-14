@@ -26,8 +26,8 @@ namespace DateCalculator.ConsoleFramework
             DateTime inicio5 = new DateTime(2018, 04, 03, 0, 0, 0);
             DateTime fin5 = new DateTime(2018, 09, 26, 0, 0, 0);
 
-            DateTime inicioF = new DateTime(2010, 5, 1, 0, 0, 0);
-            DateTime finF = new DateTime(2018, 4, 2, 0, 0, 0);
+            DateTime inicioF = new DateTime(1998, 08, 04, 0, 0, 0);
+            DateTime finF = new DateTime(2020, 01, 01, 0, 0, 0);
 
             Periodo resultado1 = PeriodCalculator.CalcularPeriodo(inicio1, fin1);
             Periodo resultado2 = PeriodCalculator.CalcularPeriodo(inicio2, fin2);
@@ -35,6 +35,23 @@ namespace DateCalculator.ConsoleFramework
             Periodo resultado4 = PeriodCalculator.CalcularPeriodo(inicio4, fin4);
             Periodo resultado5 = PeriodCalculator.CalcularPeriodo(inicio5, fin5);
             Periodo resultadoF = PeriodCalculator.CalcularPeriodo(inicioF, finF);
+
+            Periodo totalPeriodo = new Periodo();
+            totalPeriodo = PeriodCalculator.SumarPeriodos(resultado1, resultado2);
+            totalPeriodo = PeriodCalculator.SumarPeriodos(totalPeriodo, resultado3);
+            totalPeriodo = PeriodCalculator.SumarPeriodos(totalPeriodo, resultado4);
+
+            Console.WriteLine("DESDE {0} HASTA {1} = {2}-{3}-{4} {5}:{6}:{7}", inicio1, fin1, resultado1.Years, resultado1.Months, resultado1.Days, resultado1.Hours, resultado1.Minutes, resultado1.Seconds);
+            Console.WriteLine("DESDE {0} HASTA {1} = {2}-{3}-{4} {5}:{6}:{7}", inicio2, fin2, resultado2.Years, resultado2.Months, resultado2.Days, resultado2.Hours, resultado2.Minutes, resultado2.Seconds);
+            Console.WriteLine("DESDE {0} HASTA {1} = {2}-{3}-{4} {5}:{6}:{7}", inicio3, fin3, resultado3.Years, resultado3.Months, resultado3.Days, resultado3.Hours, resultado3.Minutes, resultado3.Seconds);
+            Console.WriteLine("DESDE {0} HASTA {1} = {2}-{3}-{4} {5}:{6}:{7}", inicio4, fin4, resultado4.Years, resultado4.Months, resultado4.Days, resultado4.Hours, resultado4.Minutes, resultado4.Seconds);
+            Console.WriteLine("DESDE {0} HASTA {1} = {2}-{3}-{4} {5}:{6}:{7}", inicio5, fin5, resultado5.Years, resultado5.Months, resultado5.Days, resultado5.Hours, resultado5.Minutes, resultado5.Seconds);
+            Console.WriteLine("-----------------------------------------------------------------");
+            Console.WriteLine("Total General = {0}-{1}-{2} {3}:{4}:{5}", totalPeriodo.Years, totalPeriodo.Months, totalPeriodo.Days, totalPeriodo.Hours, totalPeriodo.Minutes, totalPeriodo.Seconds);
+            Console.WriteLine("-----------------------------------------------------------------");
+            Console.WriteLine("DESDE {0} HASTA {1} = {2}-{3}-{4} {5}:{6}:{7}", inicioF, finF, resultadoF.Years, resultadoF.Months, resultadoF.Days, resultadoF.Hours, resultadoF.Minutes, resultadoF.Seconds);
+            Console.WriteLine("-----------------------------------------------------------------");
+
 
             //resultado1.AddDayDate();
             //resultado2.AddDayDate();
@@ -77,21 +94,15 @@ namespace DateCalculator.ConsoleFramework
             //TimeSpan interval4 = fin4 - inicio4;
             //TimeSpan interval5 = fin5 - inicio5;
 
-            Console.WriteLine("DESDE {0} HASTA {1} = {2}-{3}-{4} {5}:{6}:{7}", inicio1, fin1, resultado1.Years, resultado1.Months, resultado1.Days, resultado1.Hours, resultado1.Minutes, resultado1.Seconds);
-            Console.WriteLine("DESDE {0} HASTA {1} = {2}-{3}-{4} {5}:{6}:{7}", inicio2, fin2, resultado2.Years, resultado2.Months, resultado2.Days, resultado2.Hours, resultado2.Minutes, resultado2.Seconds);
-            Console.WriteLine("DESDE {0} HASTA {1} = {2}-{3}-{4} {5}:{6}:{7}", inicio3, fin3, resultado3.Years, resultado3.Months, resultado3.Days, resultado3.Hours, resultado3.Minutes, resultado3.Seconds);
-            Console.WriteLine("DESDE {0} HASTA {1} = {2}-{3}-{4} {5}:{6}:{7}", inicio4, fin4, resultado4.Years, resultado4.Months, resultado4.Days, resultado4.Hours, resultado4.Minutes, resultado4.Seconds);
-            Console.WriteLine("DESDE {0} HASTA {1} = {2}-{3}-{4} {5}:{6}:{7}", inicio5, fin5, resultado5.Years, resultado5.Months, resultado5.Days, resultado5.Hours, resultado5.Minutes, resultado5.Seconds);
-            //Console.WriteLine("Total General = {0}-{1}-{2} {3}:{4}:{5}", totalGeneral.Years, totalGeneral.Months, totalGeneral.Days, totalGeneral.Hours, totalGeneral.Minutes, totalGeneral.Seconds);
+
+
             //Console.WriteLine("-----------------------------------------------------------------");
             //Console.WriteLine("{0} - {1} = {2}", fin1, inicio1, interval1.ToString());
             //Console.WriteLine("{0} - {1} = {2}", fin2, inicio2, interval2.ToString());
             //Console.WriteLine("{0} - {1} = {2}", fin3, inicio3, interval3.ToString());
             //Console.WriteLine("{0} - {1} = {2}", fin4, inicio4, interval4.ToString());
             //Console.WriteLine("{0} - {1} = {2}", fin5, inicio5, interval5.ToString());
-            Console.WriteLine("-----------------------------------------------------------------");
-            Console.WriteLine("DESDE {0} HASTA {1} = {2}-{3}-{4} {5}:{6}:{7}", inicioF, finF, resultadoF.Years, resultadoF.Months, resultadoF.Days, resultadoF.Hours, resultadoF.Minutes, resultadoF.Seconds);
-            Console.WriteLine("-----------------------------------------------------------------");
+
             //Console.WriteLine("{0} {1} {2}", inicioEnSegundosF, finEnSegundosF, finEnSegundosF - inicioEnSegundosF);
             //Console.WriteLine("{0} {1} {2}", inicioEnSegundos2, finEnSegundos2, finEnSegundos2 - inicioEnSegundos2);
             //Console.WriteLine("-----------------------------------------------------------------");
@@ -128,12 +139,12 @@ namespace DateCalculator.ConsoleFramework
             //Console.WriteLine($"fin - inicio = {date2.Days}");
             //Console.WriteLine($"fin - inicio = {date3.Days}");
             //Console.WriteLine($"fin - inicio = {date4.Days}");
-            Console.WriteLine("-----------------------------------------------------------------");
+            //Console.WriteLine("-----------------------------------------------------------------");
             //Console.WriteLine("DESDE {0} HASTA {1} = {2}-{3}-{4} {5}:{6}:{7}", inicio1, fin1, puaj1.Years, puaj1.Months, puaj1.Days, puaj1.Hours, puaj1.Minutes, puaj1.Seconds);
             //Console.WriteLine("DESDE {0} HASTA {1} = {2}-{3}-{4} {5}:{6}:{7}", inicio2, fin2, puaj2.Years, puaj2.Months, puaj2.Days, puaj2.Hours, puaj2.Minutes, puaj2.Seconds);
             //Console.WriteLine("DESDE {0} HASTA {1} = {2}-{3}-{4} {5}:{6}:{7}", inicio3, fin3, puaj3.Years, puaj3.Months, puaj3.Days, puaj3.Hours, puaj3.Minutes, puaj3.Seconds);
             //Console.WriteLine("DESDE {0} HASTA {1} = {2}-{3}-{4} {5}:{6}:{7}", inicio4, fin4, puaj4.Years, puaj4.Months, puaj4.Days, puaj4.Hours, puaj4.Minutes, puaj4.Seconds);
-            Console.WriteLine("-----------------------------------------------------------------");
+            //Console.WriteLine("-----------------------------------------------------------------");
             Console.ReadLine();
 
 

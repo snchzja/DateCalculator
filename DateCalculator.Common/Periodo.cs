@@ -88,7 +88,7 @@ namespace DateCalculator.Common
 
         public void AddMonthsDate(int months)
         {
-            for (int i = months; i > 0; i--)
+            for (int i = 1; i < months; i++)
             {
                 this.AddMonthDate();
             }
@@ -146,6 +146,98 @@ namespace DateCalculator.Common
         public void AddYearDate()
         {
             this.Years += 1;
+        }
+
+        public void AddDaysPeriodWithExtraDay(int days)
+        {
+            for (int i = 0; i <= days; i++)
+            {
+                this.AddDayPeriod();
+            }
+        }
+
+        public void AddDaysPeriodNoExtraDay(int days)
+        {
+            for (int i = 1; i <= days; i++)
+            {
+                this.AddDayPeriod();
+            }
+        }
+
+        public void AddMonthsPeriod(int months)
+        {
+            for (int i = 1; i <= months; i++)
+            {
+                this.AddMonthDate();
+            }
+        }
+
+        public void AddYearsPeriod(int years)
+        {
+            this.Years += years;
+        }
+
+        public void AddDayPeriod()
+        {
+            this.Days += 1;
+
+            if (((this.Months == 0) || (this.Months == 2) || (this.Months == 4) || (this.Months == 6) || (this.Months == 7) || (this.Months == 9) || (this.Months == 11)) && (this.Days > 30))
+            {
+                this.Days = 0;
+
+                this.AddMonthPeriod();
+
+            }
+            else if (((this.Months == 3) || (this.Months == 5) || (this.Months == 8) || (this.Months == 10)) && (this.Days > 29))
+            {
+                this.Days = 0;
+
+                this.AddMonthPeriod();
+
+            }
+            else if ((this.Months == 1) && ((this.Years % 4) == 0) && (this.Days > 28))
+            {
+                this.Days = 0;
+
+                this.AddMonthPeriod();
+
+            }
+            else if ((this.Months == 1) && ((this.Years % 4) != 0) && (this.Days > 27))
+            {
+                this.Days = 0;
+
+                this.AddMonthPeriod();
+            }
+        }
+
+        public void AddMonthPeriod()
+        {
+            this.Months += 1;
+
+            if (this.Months > 11)
+            {
+                this.Months = 0;
+                this.AddYearPeriod();
+            }
+        }
+
+        public void AddYearPeriod()
+        {
+            this.Years += 1;
+        }
+
+        public void AddGenericDays(int days)
+        {
+            for (int i = 1; i <= days; i++)
+            {
+                this.Days += 1;
+
+                if (this.Days >= 30)
+                {
+                    this.Days = 0;
+                    this.AddMonthDate();
+                }
+            }
         }
 
         public void RemoveYearDate()
@@ -245,7 +337,7 @@ namespace DateCalculator.Common
 
         public void RemoveMonthsDate(int months)
         {
-            for (int i = 1; i<=months; i++)
+            for (int i = 1; i <= months; i++)
             {
                 this.RemoveMonthDate();
             }
@@ -278,90 +370,6 @@ namespace DateCalculator.Common
                 {
                     this.Days = 28;
 
-                }
-            }
-        }
-
-        public void AddDaysPeriod(int days)
-        {
-            for (int i = 0; i <= days; i++)
-            {
-                this.AddDayPeriod();
-            }
-        }
-
-        public void AddMonthsPeriod(int months)
-        {
-            for (int i = 1; i <= months; i++)
-            {
-                this.AddMonthDate();
-            }
-        }
-
-        public void AddYearsPeriod(int years)
-        {
-            this.Years += years;
-        }
-
-        public void AddDayPeriod()
-        {
-            this.Days += 1;
-
-            if (((this.Months == 0) || (this.Months == 2) || (this.Months == 4) || (this.Months == 6) || (this.Months == 7) || (this.Months == 9) || (this.Months == 11)) && (this.Days > 30))
-            {
-                this.Days = 0;
-
-                this.AddMonthPeriod();
-
-            }
-            else if (((this.Months == 3) || (this.Months == 5) || (this.Months == 8) || (this.Months == 10)) && (this.Days > 29))
-            {
-                this.Days = 0;
-
-                this.AddMonthPeriod();
-
-            }
-            else if ((this.Months == 1) && ((this.Years % 4) == 0) && (this.Days > 28))
-            {
-                this.Days = 0;
-
-                this.AddMonthPeriod();
-
-            }
-            else if ((this.Months == 1) && ((this.Years % 4) != 0) && (this.Days > 27))
-            {
-                this.Days = 0;
-
-                this.AddMonthPeriod();
-            }
-        }
-
-        public void AddMonthPeriod()
-        {
-            this.Months += 1;
-
-            if (this.Months > 11)
-            {
-                this.Months = 0;
-                this.AddYearPeriod();
-            }
-        }
-
-        public void AddYearPeriod()
-        {
-            this.Years += 1;
-        }
-
-        public void AddGenericDays(int days)
-        {
-            for (int i = 1; i <= days; i++)
-            {
-                this.Days += 1;
-
-                if (this.Days >= 30)
-                {
-                    this.Days = 0;
-                    this.AddMonthDate();
                 }
             }
         }
